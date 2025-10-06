@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enma: - Build & Sell AI Chatbots at Scale</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Three.js for 3D Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="gradient-bg w-10 h-10 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-robot text-white"></i>
+                </div>
+                <span class="text-xl font-bold gradient-text">enma:</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-purple-600 transition-colors">Features</a>
+                <a href="#showcase" class="text-gray-600 hover:text-purple-600 transition-colors">Showcase</a>
+                <a href="#pricing" class="text-gray-600 hover:text-purple-600 transition-colors">Pricing</a>
+                <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="dashboard.html" class="gradient-bg text-white px-6 py-2 rounded-lg btn-glow transition-all hover:shadow-lg">
+                    Get Started
+                </a>
+                <button id="mobileMenuButton" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden">
+            <div class="container mx-auto px-4 py-4">
+                <a href="#features" class="block py-2 text-gray-600 hover:text-purple-600 transition-colors">Features</a>
+                <a href="#showcase" class="block py-2 text-gray-600 hover:text-purple-600 transition-colors">Showcase</a>
+                <a href="#pricing" class="block py-2 text-gray-600 hover:text-purple-600 transition-colors">Pricing</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-purple-600 transition-colors">About</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with 3D Animation -->
+    <section class="py-16 md:py-24 relative overflow-hidden">
+        <div class="particles-container" id="particles-js"></div>
+        
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-purple-500 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-blue-500 blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in" data-aos="fade-up">
+                Build & Sell <span class="gradient-text">AI Chatbots</span> at Scale
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 fade-in" data-aos="fade-up" data-aos-delay="100">
+                The complete platform to create, deploy, and monetize intelligent chatbots with cutting-edge 3D interactions
+            </p>
+            
+            <div class="hero-buttons flex flex-col sm:flex-row justify-center gap-4 mb-12 fade-in" data-aos="fade-up" data-aos-delay="200">
+                <a href="dashboard.html" class="gradient-bg text-white px-8 py-4 rounded-lg btn-glow transition-all hover:shadow-lg font-medium">
+                    Start Building Free
+                </a>
+                <button id="demoButton" class="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg transition-all hover:bg-purple-50 font-medium">
+                    <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                </button>
+            </div>
+            
+            <!-- 3D Bot Animation -->
+            <div class="three-container mx-auto max-w-4xl mb-12" id="botAnimation" data-aos="zoom-in" data-aos-delay="300">
+                <!-- 3D animation will be rendered here by Three.js -->
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 fade-in" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2 pulse"></div>
+                    <span class="text-sm font-medium">99.9% Uptime</span>
+                </div>
+                <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                    <i class="fas fa-robot text-purple-500 mr-2"></i>
+                    <span class="text-sm font-medium">50K+ Active Bots</span>
+                </div>
+                <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                    <i class="fas fa-headset text-purple-500 mr-2"></i>
+                    <span class="text-sm font-medium">24/7 Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Powerful Features for Your Chatbot Business</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 with 3D effect -->
+                <div class="card-hover bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 bot-preview" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI-Powered Bots</h3>
+                    <p class="text-gray-600">Create intelligent chatbots using advanced AI and natural language processing with our interactive 3D bot builder.</p>
+                </div>
+                
+                <!-- Feature 2 with 3D effect -->
+                <div class="card-hover bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 bot-preview" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-comment-dots text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Multi-Channel Support</h3>
+                    <p class="text-gray-600">Deploy your chatbots across websites, messaging apps, and social media platforms with real-time 3D analytics.</p>
+                </div>
+                
+                <!-- Feature 3 with 3D effect -->
+                <div class="card-hover bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 bot-preview" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-chart-bar text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Analytics & Insights</h3>
+                    <p class="text-gray-600">Gain valuable insights into chatbot performance and user interactions with immersive 3D data visualizations.</p>
+                </div>
+                
+                <!-- Feature 4 with 3D effect -->
+                <div class="card-hover bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 bot-preview" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Lightning Fast</h3>
+                    <p class="text-gray-600">Experience blazing-fast response times with our optimized infrastructure and 3D performance monitoring.</p>
+                </div>
+                
+                <!-- Feature 5 with 3D effect -->
+                <div class="card-hover bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 bot-preview" data-aos="fade-up" data-aos-delay="500">
+                    <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Enterprise Security</h3>
+                    <p class="text-gray-600">Bank-level security with encryption, compliance, and data protection visualized in 3D security dashboards.</p>
+                </div>
+                
+                <!-- Feature 6 with 3D effect -->
+                <div class="card-hover bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 bot-preview" data-aos="fade-up" data-aos-delay="600">
+                    <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-globe text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Global Scale</h3>
+                    <p class="text-gray-600">Serve customers worldwide with our distributed global infrastructure and 3D network visualization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Showcase Section -->
+    <section id="showcase" class="py-16 bg-gray-50 parallax" >
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-black" data-aos="fade-up">Immersive 3D Bot Showcase</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="three-container" id="showcaseAnimation" data-aos="fade-right">
+                    <!-- Interactive 3D showcase will be rendered here -->
+                </div>
+                
+                <div class="text-black" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4">Interactive Bot Customization</h3>
+                    <p class="text-lg mb-6">Design and customize your chatbots in our immersive 3D environment. Drag and drop components, visualize conversation flows, and preview your bot in real-time.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <i class="fas fa-palette text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Visual Bot Builder</h4>
+                                <p class="text-green-500">Create complex conversation flows with our intuitive 3D interface</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <i class="fas fa-cube text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">3D Preview</h4>
+                                <p class="text-green-500">See your chatbot in action with our realistic 3D preview mode</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                <i class="fas fa-share-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Multi-Platform Testing</h4>
+                                <p class="text-green-500">Test your bot across different platforms in our simulated 3D environment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Simple, Transparent Pricing</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="card-hover bg-white p-8 rounded-xl border border-gray-200 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold gradient-text mb-6">$29<span class="text-lg text-gray-600">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Up to 5 bots</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>1,000 conversations/month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Basic analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    <a href="dashboard.html" class="gradient-bg text-white px-6 py-3 rounded-lg btn-glow transition-all hover:shadow-lg font-medium w-full block">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="card-hover bg-white p-8 rounded-xl border-2 border-purple-500 text-center relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Professional</h3>
+                    <div class="text-4xl font-bold gradient-text mb-6">$79<span class="text-lg text-gray-600">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Up to 20 bots</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>10,000 conversations/month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Advanced analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Custom branding</span>
+                        </li>
+                    </ul>
+                    <a href="dashboard.html" class="gradient-bg text-white px-6 py-3 rounded-lg btn-glow transition-all hover:shadow-lg font-medium w-full block">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="card-hover bg-white p-8 rounded-xl border border-gray-200 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold gradient-text mb-6">Custom</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Unlimited bots</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Unlimited conversations</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Advanced AI capabilities</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Dedicated support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Custom integrations</span>
+                        </li>
+                    </ul>
+                    <a href="dashboard.html" class="gradient-bg text-white px-6 py-3 rounded-lg btn-glow transition-all hover:shadow-lg font-medium w-full block">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">About enma:</h2>
+                <p class="text-xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
+                    enma: is the leading platform for building, deploying, and monetizing AI chatbots. 
+                    Founded in 2020, we've helped thousands of businesses create intelligent conversational 
+                    experiences that drive engagement and revenue with our cutting-edge 3D visualization tools.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="gradient-bg w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 floating">
+                            <i class="fas fa-rocket text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Our Mission</h3>
+                        <p class="text-gray-600">Democratize AI chatbot technology for businesses of all sizes with immersive 3D interfaces.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="gradient-bg w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 floating">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Our Team</h3>
+                        <p class="text-gray-600">Experts in AI, machine learning, 3D graphics, and conversational design.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="gradient-bg w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 floating">
+                            <i class="fas fa-heart text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Our Values</h3>
+                        <p class="text-gray-600">Innovation, transparency, and customer success through immersive experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6" data-aos="fade-up">Ready to Transform Your Business?</h2>
+            <p class="text-white/80 text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Join thousands of businesses using enma: to create powerful chatbot experiences with our immersive 3D tools.
+            </p>
+            <a href="dashboard.html" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold transition-all hover:shadow-lg inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo Column -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="gradient-bg w-8 h-8 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-robot text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">enma:</span>
+                    </div>
+                    <p class="text-gray-400">The complete platform to build, deploy, and monetize intelligent chatbots with 3D visualization.</p>
+                </div>
+                
+                <!-- Product Column -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Product</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Integrations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Column -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Column -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 enma:. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-container bg-white" id="chatContainer">
+            <div class="chat-header gradient-bg flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold">enma: Support</h3>
+                    <div class="flex items-center text-sm">
+                        <div class="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
+                        <span>Online</span>
+                    </div>
+                </div>
+                <button id="closeChat" class="text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <p>Hi! I'm your enma: assistant. How can I help you today?</p>
+                    <div class="message-time">10:00 AM</div>
+                </div>
+            </div>
+            
+            <div class="p-4 border-t border-gray-200">
+                <div class="flex">
+                    <input type="text" id="chatInput" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <button id="sendMessage" class="gradient-bg text-white px-4 rounded-r-lg">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-button gradient-bg pulse" id="chatButton">
+            <i class="fas fa-comment text-white text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Particle.js for background effects -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="index.js"></script>
+</body>
+</html>

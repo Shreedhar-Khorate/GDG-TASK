@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bots - enma:</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-gray-900 text-white" id="sidebar">
+            <div class="p-4 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="gradient-bg w-8 h-8 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-robot text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold sidebar-text">enma:</span>
+                </div>
+                <button id="sidebarToggle" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <nav class="p-4 space-y-2">
+                <a href="dashboard.html" class="sidebar-item flex items-center space-x-3 p-3 rounded-lg">
+                    <i class="fas fa-home w-5 text-center"></i>
+                    <span class="sidebar-text">Home</span>
+                </a>
+                <a href="bots.html" class="sidebar-item active flex items-center space-x-3 p-3 rounded-lg">
+                    <i class="fas fa-robot w-5 text-center"></i>
+                    <span class="sidebar-text">Bots</span>
+                </a>
+                <a href="sales.html" class="sidebar-item flex items-center space-x-3 p-3 rounded-lg">
+                    <i class="fas fa-dollar-sign w-5 text-center"></i>
+                    <span class="sidebar-text">Sales</span>
+                </a>
+                <a href="settings.html" class="sidebar-item flex items-center space-x-3 p-3 rounded-lg">
+                    <i class="fas fa-cog w-5 text-center"></i>
+                    <span class="sidebar-text">Settings</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 p-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-2xl font-bold gradient-text">Your Bots</h1>
+                    <div class="flex items-center space-x-4">
+                        <button class="gradient-bg text-white px-6 py-2 rounded-lg btn-glow transition-all hover:shadow-lg">
+                            <i class="fas fa-plus mr-2"></i> Create New Bot
+                        </button>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">U</span>
+                            </div>
+                            <span class="font-medium">User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Bots Content -->
+            <main class="p-6">
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Total Bots</p>
+                                <h3 class="text-2xl font-bold text-gray-800 mt-1">6</h3>
+                            </div>
+                            <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-robot text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Active Bots</p>
+                                <h3 class="text-2xl font-bold text-gray-800 mt-1">4</h3>
+                            </div>
+                            <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-play text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Paused Bots</p>
+                                <h3 class="text-2xl font-bold text-gray-800 mt-1">2</h3>
+                            </div>
+                            <div class="bg-yellow-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-pause text-yellow-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bots Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Bot Card 1 -->
+                    <div class="bg-white rounded-xl border border-gray-200 card-hover overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-headset text-white"></i>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Customer Support Bot</h3>
+                            <p class="text-gray-600 text-sm mb-4">Handles customer inquiries and support tickets 24/7</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-comments mr-1"></i> 1,234 conversations</span>
+                                <span>Updated 2h ago</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 p-4 flex space-x-2">
+                            <button class="flex-1 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                <i class="fas fa-pause mr-1"></i> Pause
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bot Card 2 -->
+                    <div class="bg-white rounded-xl border border-gray-200 card-hover overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart text-blue-600"></i>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Sales Assistant</h3>
+                            <p class="text-gray-600 text-sm mb-4">Helps customers with product selection and purchases</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-comments mr-1"></i> 892 conversations</span>
+                                <span>Updated 5h ago</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 p-4 flex space-x-2">
+                            <button class="flex-1 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                <i class="fas fa-pause mr-1"></i> Pause
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bot Card 3 -->
+                    <div class="bg-white rounded-xl border border-gray-200 card-hover overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-orange-600"></i>
+                                </div>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Paused</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Lead Generation Bot</h3>
+                            <p class="text-gray-600 text-sm mb-4">Collects and qualifies leads from website visitors</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-comments mr-1"></i> 456 conversations</span>
+                                <span>Updated 1d ago</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 p-4 flex space-x-2">
+                            <button class="flex-1 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+                                <i class="fas fa-play mr-1"></i> Resume
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bot Card 4 -->
+                    <div class="bg-white rounded-xl border border-gray-200 card-hover overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-question-circle text-green-600"></i>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">FAQ Helper</h3>
+                            <p class="text-gray-600 text-sm mb-4">Answers frequently asked questions automatically</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-comments mr-1"></i> 2,341 conversations</span>
+                                <span>Updated 30m ago</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 p-4 flex space-x-2">
+                            <button class="flex-1 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                <i class="fas fa-pause mr-1"></i> Pause
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bot Card 5 -->
+                    <div class="bg-white rounded-xl border border-gray-200 card-hover overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-calendar text-purple-600"></i>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Appointment Scheduler</h3>
+                            <p class="text-gray-600 text-sm mb-4">Books appointments and manages calendar availability</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-comments mr-1"></i> 567 conversations</span>
+                                <span>Updated 3h ago</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 p-4 flex space-x-2">
+                            <button class="flex-1 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                <i class="fas fa-pause mr-1"></i> Pause
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bot Card 6 -->
+                    <div class="bg-white rounded-xl border border-gray-200 card-hover overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-exclamation-triangle text-red-600"></i>
+                                </div>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Paused</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Emergency Response</h3>
+                            <p class="text-gray-600 text-sm mb-4">Handles urgent customer issues and escalations</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-comments mr-1"></i> 123 conversations</span>
+                                <span>Updated 2d ago</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 p-4 flex space-x-2">
+                            <button class="flex-1 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+                                <i class="fas fa-play mr-1"></i> Resume
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
